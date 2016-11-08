@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MKDateUtils_Example' do
+  pod 'MKDateUtils', :path => '../'
+
+  target 'MKDateUtils_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
