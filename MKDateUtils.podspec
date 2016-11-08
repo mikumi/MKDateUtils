@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MKDateUtils'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Collection of NSDate convenience methods'
   s.description      = <<-DESC
 A small collection of NSDate convenience methods.
