@@ -26,8 +26,8 @@
 {
     NSDate *result = [self dateByRemovingTimeComponents];
 
-    static NSCalendarUnit const flags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    static NSCalendarUnit const flags = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *const components = [calendar components:flags fromDate:date];
     result = [calendar dateByAddingComponents:components toDate:result options:0];
 
@@ -38,7 +38,7 @@
 {
     NSDate *const dateOnly = [date dateByRemovingTimeComponents];
 
-    static NSCalendarUnit const flags = NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    static NSCalendarUnit const flags = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     NSCalendar       *const calendar   = [NSCalendar currentCalendar];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
     NSDate           *const result     = [calendar dateByAddingComponents:components toDate:dateOnly options:0];
@@ -86,8 +86,8 @@
 
 - (NSDate *)dateByRemovingTimeComponents
 {
-    static NSCalendarUnit const flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |
-                                        NSTimeZoneCalendarUnit;
+    static NSCalendarUnit const flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |
+                                        NSCalendarUnitTimeZone;
     NSCalendar       *const calendar   = [NSCalendar currentCalendar];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
 
@@ -97,8 +97,8 @@
 
 - (NSDate *)dateByRemovingSeconds
 {
-    static NSCalendarUnit const flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |
-                                        NSTimeZoneCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
+    static NSCalendarUnit const flags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |
+                                        NSCalendarUnitTimeZone | NSCalendarUnitHour | NSCalendarUnitMinute;
     NSCalendar       *const calendar   = [NSCalendar currentCalendar];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
 
@@ -180,7 +180,7 @@
 */
 - (NSInteger)timeDifferenceInDaysToDate:(NSDate *)date
 {
-    static NSCalendarUnit const flags = NSDayCalendarUnit;
+    static NSCalendarUnit const flags = NSCalendarUnitDay;
     NSCalendar       *const calendar         = [NSCalendar currentCalendar];
     NSDateComponents *const firstComponents  = [calendar components:flags fromDate:self];
     NSDateComponents *const secondComponents = [calendar components:flags fromDate:date];
@@ -191,48 +191,48 @@
 
 - (NSInteger)year
 {
-    static NSCalendarUnit const flags = NSYearCalendarUnit;
-    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    static NSCalendarUnit const flags = NSCalendarUnitYear;
+    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
     return components.year;
 }
 
 - (NSInteger)month
 {
-    static NSCalendarUnit const flags = NSMonthCalendarUnit;
-    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    static NSCalendarUnit const flags = NSCalendarUnitMonth;
+    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
     return components.month;
 }
 
 - (NSInteger)day
 {
-    static NSCalendarUnit const flags = NSDayCalendarUnit;
-    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    static NSCalendarUnit const flags = NSCalendarUnitDay;
+    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
     return components.day;
 }
 
 - (NSInteger)hour
 {
-    static NSCalendarUnit const flags = NSHourCalendarUnit;
-    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    static NSCalendarUnit const flags = NSCalendarUnitHour;
+    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
     return components.hour;
 }
 
 - (NSInteger)minute
 {
-    static NSCalendarUnit const flags = NSMinuteCalendarUnit;
-    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    static NSCalendarUnit const flags = NSCalendarUnitMinute;
+    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
     return components.minute;
 }
 
 - (NSInteger)second
 {
-    static NSCalendarUnit const flags = NSSecondCalendarUnit;
-    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    static NSCalendarUnit const flags = NSCalendarUnitSecond;
+    NSCalendar       *const calendar   = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *const components = [calendar components:flags fromDate:self];
     return components.second;
 }
