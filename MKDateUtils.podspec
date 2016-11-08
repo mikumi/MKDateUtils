@@ -19,5 +19,6 @@ A small collection of NSDate convenience methods.
   s.source           = { :git => 'https://github.com/mikumi/MKDateUtils.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/michaelkuckcom'
   s.ios.deployment_target = '8.0'
+  s.watchos.deployment_target = '3.0'
   s.source_files = 'MKDateUtils/Classes/**/*'
 end
