@@ -1,0 +1,6 @@
+framework module Pods_MKDateUtils_Example {
+  umbrella header "Pods-MKDateUtils_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

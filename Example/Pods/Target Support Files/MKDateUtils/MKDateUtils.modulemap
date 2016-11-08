@@ -1,0 +1,6 @@
+framework module MKDateUtils {
+  umbrella header "MKDateUtils-umbrella.h"
+
+  export *
+  module * { export * }
+}
